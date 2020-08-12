@@ -1,10 +1,10 @@
 #include<iostream>
 using namespace std;
 
-#define ONEFEN    1
-#define FIVEFEN    5
-#define TENFEN    10
-#define TWENTYFINEFEN 25
+#define ONECENT    1
+#define FIVECENT    5
+#define TENCENT    10
+#define TWENTYFINECENT 25
 
 int main()
 {
@@ -12,24 +12,24 @@ int main()
     int num_25=0,num_10=0,num_5=0,num_1=0;
 
     //Try different denominations
-    while(cur_money>=TWENTYFINEFEN){ 
+    while(cur_money>=TWENTYFINECENT){
         num_25++;
-        cur_money -=TWENTYFINEFEN;
+        cur_money -=TWENTYFINECENT;
     }
     
-    while(cur_money>=TENFEN){
+    while(cur_money>=TENCENT){
         num_10++;
-        cur_money -=TENFEN;
+        cur_money -=TENCENT;
     }
     
-    while(cur_money>=FIVEFEN){
+    while(cur_money>=FIVECENT){
         num_5++;
-        cur_money -=FIVEFEN;
+        cur_money -=FIVECENT;
     }
     
-    while(cur_money>=ONEFEN){
+    while(cur_money>=ONECENT){
         num_1++;
-        cur_money -=ONEFEN;
+        cur_money -=ONECENT;
     }
 
     //output
