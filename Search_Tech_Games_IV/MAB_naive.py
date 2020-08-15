@@ -22,15 +22,23 @@ class Arm():
             return 1.0
 
 
-class RandomAgent(object):
+class NaiveAlgorithm(object):
 
-    def __init__(self, arms):
+    def __init__(self, arms, explore_n=5):
         self.arms = arms
+        self.explore_n = explore_n
         self.values = [[] for i in arms]
 
     def select_arm(self):
 
-        arm_idx = self.get_random_arm_idx()
+        trail_n_list = [len(self.values[i]) for i in range(len(arms))]
+        trail_n = np.array(trail_n_list)
+        if np.any(trail_n < self.explore_n):  # if have been explored less than specified
+            arm_idx = np.argmin(trail_n)  # return the one least explored
+        else:  # return the best mean forever
+            estimated_means = [np.mean(self.values[i]) for i in range(len(arms))]  # the current means
+            best_mean = np.argmax(estimated_means)  # the best mean
+            return best_mean
 
         arm = self.arms[arm_idx]
         reward = arm.pull()
@@ -39,14 +47,11 @@ class RandomAgent(object):
     def update(self, arm_idx, reward):
         self.values[arm_idx].append(reward)
 
-    def get_random_arm_idx(self):
-        return random.randrange(len(self.arms))
-
 
 if __name__ == "__main__":
     possibilities = [random.random() for i in range(10)]
     arms = [Arm(i, p) for i, p in enumerate(possibilities)]
-    algo = RandomAgent(arms)
+    algo = NaiveAlgorithm(arms, 5)
     for i in range(100):
         algo.select_arm()
     total_reward = 0
