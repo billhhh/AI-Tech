@@ -8,6 +8,9 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
+import matplotlib.pyplot as plt
+
+visual_ON = True
 
 
 class Net(nn.Module):
@@ -60,6 +63,12 @@ def model_test(model, device, test_loader):
     with torch.no_grad():
         for data, target in test_loader:
             data, target = data.to(device), target.to(device)
+            if visual_ON:
+                for i in range(data.shape[0]):
+                    plt.imshow(data[0].squeeze().cpu().numpy()), plt.show()
+                    print('target', i, ':', target[i])
+
+
             output = model(data)
             test_loss += F.nll_loss(output, target, reduction='sum').item()  # sum up batch loss
             pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
