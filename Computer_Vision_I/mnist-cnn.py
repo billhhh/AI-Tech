@@ -65,8 +65,8 @@ def model_test(model, device, test_loader):
             data, target = data.to(device), target.to(device)
             if visual_ON:
                 for i in range(data.shape[0]):
-                    plt.imshow(data[0].squeeze().cpu().numpy()), plt.show()
-                    print('target', i, ':', target[i])
+                    plt.imshow(data[i].squeeze().cpu().numpy()), plt.show()
+                    print('target', i, ':', target[i].item())
 
 
             output = model(data)
