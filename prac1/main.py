@@ -25,6 +25,7 @@ print(now.second)
 # ex5
 list = ['Apple', 'Banana', 'Fig', 'Pear', 'Plum', 'Peach', 'Raspberry']
 print('Before:', list)
+del list[-1]
 list.pop(-1)
 print('After', list)
 list.pop(0)
