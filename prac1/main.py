@@ -25,10 +25,9 @@ print(now.second)
 # ex5
 list = ['Apple', 'Banana', 'Fig', 'Pear', 'Plum', 'Peach', 'Raspberry']
 print('Before:', list)
-del list[-1]
-list.pop(-1)
+del list[0]
 print('After', list)
-list.pop(0)
+list.pop(5)
 print('After', list)
 
 
@@ -36,6 +35,6 @@ print('After', list)
 with open('input.txt') as f:
    file = open('output.txt', 'w')
    for line in f:
-       print(line)
+       # print(line)
        file.write(line)
 
