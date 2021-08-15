@@ -5,8 +5,10 @@ import math
 # step size
 DELTA = 0.01
 # define the domain
+# BOUND = [-2,2]
 BOUND = [5,8]
 # random times
+# RANDOM_TIMES = 1
 RANDOM_TIMES = 100
 
 
