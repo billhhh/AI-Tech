@@ -5,7 +5,7 @@
 student_grades = {'Adam':'CR', 'Leo':'HD', 'Max':'D', 'Nicole':'CR', 'Oscar':'P'}
 
 for k, v in student_grades.items():
-    print(k, v)
+    # print(k, v)
     print('(\'%s\',\'%s\')' % (k, v))
 
 
