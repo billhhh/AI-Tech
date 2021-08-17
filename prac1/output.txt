@@ -1,0 +1,4 @@
+Hello TECH 1004
+This is our new text file
+and this is another line.
+Why? Because this is a basic task.
