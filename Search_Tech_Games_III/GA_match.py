@@ -31,6 +31,7 @@ class GA(object):
         match_count = (self.pop == TARGET_ASCII).sum(axis=1)
         return match_count
 
+    # select, individuals with better fitness would have more chance to stay
     def select(self):
         fitness = self.get_fitness() + 1e-4     # add a small amount to avoid all zero fitness
         idx = np.random.choice(np.arange(self.pop_size), size=self.pop_size, replace=True, p=fitness/fitness.sum())
@@ -57,6 +58,7 @@ class GA(object):
             child = self.mutate(child)
             parent[:] = child
         self.pop = pop
+
 
 if __name__ == '__main__':
     ga = GA(DNA_size=DNA_SIZE, DNA_bound=ASCII_BOUND, cross_rate=CROSS_RATE,
