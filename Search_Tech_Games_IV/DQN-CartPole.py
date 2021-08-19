@@ -86,14 +86,17 @@ class DQN(object):
         loss.backward()
         self.optimizer.step()
 
+
 dqn = DQN()
+r_thresh = False
 
 print('\nCollecting experience...')
 for i_episode in range(400):
     s = env.reset()
     ep_r = 0
     while True:
-        env.render()
+        if r_thresh:
+            env.render()
         a = dqn.choose_action(s)
 
         # take action
@@ -113,6 +116,8 @@ for i_episode in range(400):
             if done:
                 print('Ep: ', i_episode,
                       '| Ep_r: ', round(ep_r, 2))
+                if ep_r > 150:
+                    r_thresh = True
 
         if done:
             break
