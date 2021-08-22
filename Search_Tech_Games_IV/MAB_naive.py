@@ -31,7 +31,7 @@ class NaiveAlgorithm(object):
 
     def select_arm(self):
 
-        trail_n_list = [len(self.values[i]) for i in range(len(arms))]
+        trail_n_list = [len(self.values[i]) for i in range(len(arms))]  # how many times have been tried
         trail_n = np.array(trail_n_list)
         if np.any(trail_n < self.explore_n):  # if have been explored less than specified
             arm_idx = np.argmin(trail_n)  # return the one least explored
