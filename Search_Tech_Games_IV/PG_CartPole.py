@@ -27,7 +27,7 @@ args = parser.parse_args()
 env = gym.make('CartPole-v1')
 env.seed(args.seed)
 torch.manual_seed(args.seed)
-render_r_thresh = 400
+render_r_thresh = 300
 
 
 class Policy(nn.Module):
