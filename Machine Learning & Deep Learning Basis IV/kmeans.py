@@ -30,13 +30,17 @@ def load_data_set():
 x,label = load_data_set()
 print(x.shape)
 plt.scatter(x[:,0],x[:,1])
+plt.show()
 
 # create K clusters
 clusters = []
 p1 = [6,4]
 p2 = [1,3]
+# p3 = [2,5]
 cluster_center = np.array([p1,p2])
+# cluster_center = np.array([p1,p2,p3])
 k = 2
+# k = 3
 for i in range(k):
     clusters.append([])
 
@@ -59,3 +63,5 @@ for _ in range(epoch):
 
 plt.scatter(x[clusters[0],0],x[clusters[0],1])
 plt.scatter(x[clusters[1],0],x[clusters[1],1])
+# plt.scatter(x[clusters[2],0],x[clusters[2],1])
+plt.show()
