@@ -9,6 +9,7 @@ Original file is located at
 
 import matplotlib.pyplot as plt
 import numpy as np
+import heapq
 
 def load_data_set():
     """
@@ -29,13 +30,14 @@ def load_data_set():
 
 x,label = load_data_set()
 print(x.shape)
+sec_large = heapq.nlargest(2, x[:,1])
 plt.scatter(x[:,0],x[:,1])
 plt.show()
 
 # create K clusters
 clusters = []
-p1 = [6,4]
-p2 = [1,3]
+p1 = [0,0]
+p2 = [10,0]
 # p3 = [2,5]
 cluster_center = np.array([p1,p2])
 # cluster_center = np.array([p1,p2,p3])
@@ -44,8 +46,8 @@ k = 2
 for i in range(k):
     clusters.append([])
 
-epoch = 5
-for _ in range(epoch):
+epoch = 1
+for e in range(epoch):
     for i in range(k):
         clusters[i]=[]
         
