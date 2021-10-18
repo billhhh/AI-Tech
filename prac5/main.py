@@ -37,8 +37,8 @@ for pwd in passwords:
 
 
 # (4)
-#pattern = re.compile(r"^[a-z0-9_-]{6,18}$")
-pattern = re.compile(r"[a-z0-9_-]{6,18}")
+pattern = re.compile(r"^[a-z0-9_-]{6,18}$")
+# pattern = re.compile(r"[a-z0-9_-]{6,18}")
 
 print ("========match/search========")
 for pwd in passwords:
