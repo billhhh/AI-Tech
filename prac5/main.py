@@ -6,6 +6,7 @@ line = "Matches bat, bet, bit, bot and but Also matches cricket bat, bitter lemo
 
 pattern = re.compile(r'b[aeiou]t')
 result = pattern.findall(line)
+print ("========match bat========")
 print(result)
 
 
@@ -16,6 +17,7 @@ line2 = "cricket bat"
 # anchor our patterns to the beginning and ends of lines using ^ and $ respectively (or \A and \Z for multiline strings)
 pattern = re.compile(r'^b[aeiou]t')
 result = pattern.findall(line)
+print ("========anchors========")
 print(result)
 result = pattern.findall(line2)
 print(result)
@@ -23,13 +25,24 @@ print(result)
 
 # (3)
 passwords = ['my_p8ss-w0rd', 'my_p8ss-w0rdmy_p8ss-w0rdmy_p8ss-w0rd' , 'aaaaaaaaaaa', '22222222222', '____________', '$asd123_']
+# pattern = re.compile(r"\d")
+pattern = re.compile(r"[0-9]")
+# pattern = re.compile(r"[A-Za-z0-9_]")
+# pattern = re.compile(r"[ \t\r\n\f]")
 
+print ("========shorthand character========")
+for pwd in passwords:
+    result = pattern.findall(pwd)
+    print(result)
+
+
+# (4)
 #pattern = re.compile(r"^[a-z0-9_-]{6,18}$")
 pattern = re.compile(r"[a-z0-9_-]{6,18}")
 
 print ("========match/search========")
 for pwd in passwords:
-    t = re.match(pattern,pwd)
+    t = re.match(pattern, pwd)
     if (t):
         print(t.group(0))
     else:
