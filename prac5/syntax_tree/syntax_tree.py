@@ -16,6 +16,6 @@ parser = nltk.ChartParser(grammar)
 for tree in parser.parse(sent):
     print(tree)
 
-parser = nltk.parse.RecursiveDescentParser(grammar)
-for tree in parser.parse(sent):
-    print(tree)
+# parser = nltk.parse.RecursiveDescentParser(grammar)
+# for tree in parser.parse(sent):
+#     print(tree)
