@@ -14,15 +14,17 @@ import re
 line = "batman"
 line2 = "cricket bat"
 
-print(line.find('man'))
+start = 'b'
+end = 'n'
+print(start + (line.split(start))[1].split(end)[0] + end)
 
 # anchor our patterns to the beginning and ends of lines using ^ and $ respectively (or \A and \Z for multiline strings)
-# pattern = re.compile(r'^b[a-z0-9_-]{6,18}')
-# result = pattern.findall(line)
-# print ("========anchors========")
-# print(result)
-# result = pattern.findall(line2)
-# print(result)
+pattern = re.compile(r'b.*?n')
+result = pattern.findall(line)
+print ("========anchors========")
+print(result)
+result = pattern.findall(line2)
+print(result)
 
 
 # (3)
